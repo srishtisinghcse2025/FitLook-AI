@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitLook AI — Your personal fashion companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="announcement">YOUR STYLE, YOUR FIT, YOUR SMARTER SHOPPING EXPERIENCE</div>
+  <header class="site-header">
+    <a class="brand" href="#" data-page="home"><span class="brand-mark">F</span><span>fitlook<span class="brand-ai">.ai</span></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    <nav id="mainNav">
+      <button class="nav-link active" data-page="home">Home</button>
+      <button class="nav-link" data-page="explore">Explore</button>
+      <button class="nav-link" data-page="tryon">Virtual try-on</button>
+      <button class="nav-link" data-page="assistant">AI stylist</button>
+      <button class="nav-link" data-page="compare">Price compare</button>
+    </nav>
+    <button class="profile-button" data-page="profile"><span class="profile-dot">●</span> My profile</button>
+  </header>
+
+  <main>
+    <section class="page active" id="page-home">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">A MORE PERSONAL WAY TO SHOP</span>
+          <h1>Find your fit.<br><em>Find your look.</em></h1>
+          <p>Try fashion on your personal digital avatar, discover sizes with more confidence and compare shopping options — all in one place.</p>
+          <div class="hero-actions">
+            <button class="btn btn-dark" data-page="tryon">Create my try-on <span>↗</span></button>
+            <button class="btn btn-light" data-page="explore">Explore products</button>
+          </div>
+          <div class="hero-note"><span class="tiny-check">✓</span> Your style profile stays in your browser in this demo.</div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-image"></div>
+          <div class="floating-card floating-top"><span class="float-icon">✦</span><span><b>Your style, personalized</b><small>One profile. Smarter choices.</small></span></div>
+          <div class="floating-card floating-bottom"><div class="mini-swatch"></div><span><b>Try before you decide</b><small>Preview outfits on your avatar</small></span></div>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <div><span class="eyebrow">THE FITLOOK EXPERIENCE</span><h2>Shopping, made more you.</h2></div>
+        <p>From the first idea to the final decision, get a little more clarity at every step.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card"><div class="feature-icon">◉</div><h3>Your personal avatar</h3><p>Upload a photo and prepare a consistent avatar for virtual outfit previews.</p><button class="text-link" data-page="tryon">Explore virtual try-on →</button></article>
+        <article class="feature-card"><div class="feature-icon">⌕</div><h3>Smart size guidance</h3><p>Compare your measurements with a product's own size chart.</p><button class="text-link" data-page="profile">Set up your profile →</button></article>
+        <article class="feature-card"><div class="feature-icon">✧</div><h3>AI shopping assistant</h3><p>Share your budget and preferences to get product ideas.</p><button class="text-link" data-page="assistant">Find my look →</button></article>
+        <article class="feature-card"><div class="feature-icon">₹</div><h3>Compare prices</h3><p>Check the same or similar items across supported shopping sources.</p><button class="text-link" data-page="compare">Compare options →</button></article>
+      </div>
+
+      <div class="banner-cta">
+        <div><span class="eyebrow">START WITH YOUR STYLE</span><h2>Your fashion profile is the first step.</h2><p>Add your preferences and measurements once, then use them across your FitLook experience.</p></div>
+        <button class="btn btn-dark" data-page="profile">Create my profile ↗</button>
+      </div>
+    </section>
+
+    <section class="page" id="page-explore">
+      <div class="page-intro"><span class="eyebrow">DISCOVER YOUR NEXT FAVOURITE</span><h1>Explore the edit.</h1><p>Browse the demo collection or bring in a product from another shopping website.</p></div>
+      <div class="catalog-tools">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search shirts, dresses, shoes..." /></label>
+        <div class="filter-row" id="categoryFilters">
+          <button class="filter-chip active" data-category="All">All</button><button class="filter-chip" data-category="Tops">Tops</button><button class="filter-chip" data-category="Dresses">Dresses</button><button class="filter-chip" data-category="Bottoms">Bottoms</button><button class="filter-chip" data-category="Shoes">Shoes</button><button class="filter-chip" data-category="Accessories">Accessories</button>
+        </div>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="external-product">
+        <div><span class="eyebrow">FOUND SOMETHING ELSE?</span><h2>Bring your own product.</h2><p>Paste a product URL from a shopping platform, or upload its screenshot if the link can't be read.</p></div>
+        <div class="url-entry"><input id="productUrl" type="url" placeholder="Paste product link here..." /><button class="btn btn-dark" id="analyseUrlBtn">Check product</button><label class="upload-link">Or upload product image <input id="productImageInput" type="file" accept="image/*" hidden /></label><div id="urlStatus" class="status-message" aria-live="polite"></div></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-tryon">
+      <div class="page-intro"><span class="eyebrow">YOUR PERSONAL FITTING ROOM</span><h1>See a new possibility.</h1><p>Set up a photo preview and choose a sample look. A real AI try-on model can be connected in a later development stage.</p></div>
+      <div class="tryon-layout">
+        <div class="panel avatar-panel">
+          <div class="panel-heading"><div><span class="eyebrow">YOUR AVATAR</span><h2>Personal photo</h2></div><span class="step-number">01</span></div>
+          <div class="avatar-stage" id="avatarStage"><div class="avatar-placeholder"><div class="avatar-symbol">＋</div><b>Your avatar preview</b><span>Upload a full-body photo to see it here.</span></div></div>
+          <label class="btn btn-dark upload-button">Upload your photo <input id="avatarInput" type="file" accept="image/*" hidden /></label>
+          <p class="microcopy">Use a photo you have permission to use. This demo previews the uploaded image locally; it does not generate an AI avatar or send the image to a server.</p>
+        </div>
+        <div class="panel outfit-panel">
+          <div class="panel-heading"><div><span class="eyebrow">STYLE YOUR PREVIEW</span><h2>Choose a look</h2></div><span class="step-number">02</span></div>
+          <div class="look-options">
+            <button class="look-option selected" data-look="Everyday linen"> <span class="look-swatch swatch-sand"></span><span><b>Everyday linen</b><small>Relaxed · Neutral</small></span></button>
+            <button class="look-option" data-look="Weekend denim"><span class="look-swatch swatch-blue"></span><span><b>Weekend denim</b><small>Casual · Easy</small></span></button>
+            <button class="look-option" data-look="Evening edit"><span class="look-swatch swatch-berry"></span><span><b>Evening edit</b><small>Smart · Dressy</small></span></button>
+          </div>
+          <div class="preview-summary"><span class="eyebrow">SELECTED LOOK</span><h3 id="selectedLook">Everyday linen</h3><p id="tryonMessage">Choose a look to update this demo preview selection.</p></div>
+          <button class="btn btn-dark full-width" id="saveLookBtn">Save this look</button>
+          <p class="microcopy">The outfit selection is interactive, but clothing transfer onto the person is not connected yet. The real feature needs a virtual try-on AI model/API.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-assistant">
+      <div class="page-intro"><span class="eyebrow">A LITTLE HELP FINDING YOUR LOOK</span><h1>Tell us what you're looking for.</h1><p>Describe the occasion, budget and style. This first version uses sample product rules, not a live AI model.</p></div>
+      <div class="assistant-layout">
+        <div class="panel assistant-form">
+          <label class="field-label" for="occasion">What's the occasion?</label><select id="occasion"><option>College / everyday</option><option>Party</option><option>Office / formal</option><option>Festive</option><option>Casual outing</option></select>
+          <label class="field-label" for="budget">Your budget (₹)</label><input id="budget" type="number" min="0" value="2000" />
+          <label class="field-label" for="stylePreference">Preferred style</label><select id="stylePreference"><option>Minimal</option><option>Casual</option><option>Traditional</option><option>Streetwear</option><option>Formal</option></select>
+          <label class="field-label" for="colourPreference">Colour preference</label><select id="colourPreference"><option>Any colour</option><option>Neutrals</option><option>Pastels</option><option>Blue tones</option><option>Dark tones</option></select>
+          <button class="btn btn-dark full-width" id="recommendBtn">Find my look ↗</button>
+        </div>
+        <div class="panel recommendation-panel"><span class="eyebrow">YOUR SUGGESTIONS</span><div id="recommendations"><div class="empty-state"><div>✧</div><h3>Your ideas will appear here.</h3><p>Choose your preferences and select “Find my look”.</p></div></div></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-compare">
+      <div class="page-intro"><span class="eyebrow">SHOP WITH MORE CLARITY</span><h1>Compare before you decide.</h1><p>Check example prices for the same or similar products. Live retailer search is not connected in this demo.</p></div>
+      <div class="panel compare-input"><div><span class="eyebrow">PRODUCT TO COMPARE</span><h2>Find another shopping option.</h2></div><div class="compare-controls"><input id="compareName" type="text" value="Everyday linen shirt" placeholder="Enter product name" /><button class="btn btn-dark" id="compareBtn">Compare prices</button></div></div>
+      <div class="comparison-result" id="comparisonResult">
+        <div class="empty-state"><div>₹</div><h3>Your comparison will appear here.</h3><p>Run a sample comparison to see how FitLook could display retailer options.</p></div>
+      </div>
+      <p class="microcopy">All displayed prices are fictional demo values. A production version needs authorized retailer feeds/APIs, product matching and updated delivery/discount information.</p>
+    </section>
+
+    <section class="page" id="page-profile">
+      <div class="page-intro"><span class="eyebrow">YOUR STYLE, IN ONE PLACE</span><h1>Your fashion profile.</h1><p>Add only the information you're comfortable sharing. You can update it whenever you like.</p></div>
+      <div class="profile-layout">
+        <form class="panel profile-form" id="profileForm">
+          <div class="panel-heading"><div><span class="eyebrow">PERSONAL DETAILS</span><h2>About you</h2></div><span class="step-number">01</span></div>
+          <div class="form-grid">
+            <div><label class="field-label" for="fullName">Name</label><input id="fullName" type="text" placeholder="Your name" /></div>
+            <div><label class="field-label" for="age">Age (optional)</label><input id="age" type="number" min="13" max="100" placeholder="Age" /></div>
+            <div><label class="field-label" for="height">Height (cm)</label><input id="height" type="number" min="80" max="230" placeholder="e.g. 165" /></div>
+            <div><label class="field-label" for="usualSize">Usual clothing size</label><select id="usualSize"><option value="">Choose size</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select></div>
+            <div><label class="field-label" for="chest">Chest / bust (cm, optional)</label><input id="chest" type="number" min="40" max="180" placeholder="Measurement" /></div>
+            <div><label class="field-label" for="waist">Waist (cm, optional)</label><input id="waist" type="number" min="40" max="180" placeholder="Measurement" /></div>
+            <div><label class="field-label" for="hip">Hip (cm, optional)</label><input id="hip" type="number" min="40" max="200" placeholder="Measurement" /></div>
+            <div><label class="field-label" for="profileBudget">Shopping budget (₹)</label><input id="profileBudget" type="number" min="0" placeholder="e.g. 2000" /></div>
+          </div>
+          <label class="field-label" for="profileStyle">Style preference</label><select id="profileStyle"><option>Minimal</option><option>Casual</option><option>Traditional</option><option>Streetwear</option><option>Formal</option></select>
+          <label class="field-label" for="profileColours">Colours you enjoy</label><input id="profileColours" type="text" placeholder="e.g. blue, beige, pastel shades" />
+          <label class="consent-row"><input id="photoConsent" type="checkbox" /> I understand that my photo is personal data and agree to use it for this local demo preview.</label>
+          <button class="btn btn-dark" type="submit">Save my profile</button><span class="status-message" id="profileStatus" aria-live="polite"></span>
+        </form>
+        <aside class="panel profile-preview"><span class="eyebrow">PROFILE PREVIEW</span><div class="profile-avatar" id="profileAvatar">F</div><h2 id="profileNamePreview">Your name</h2><p id="profileMeta">Your style profile will appear here.</p><div class="profile-stat"><span>Usual size</span><b id="profileSizePreview">Not added</b></div><div class="profile-stat"><span>Height</span><b id="profileHeightPreview">Not added</b></div><div class="profile-stat"><span>Saved looks</span><b id="savedCount">0</b></div><button class="text-link" id="clearProfileBtn">Clear saved profile data</button></aside>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#" data-page="home"><span class="brand-mark">F</span><span>fitlook<span class="brand-ai">.ai</span></span></a><p>Try it. Find your fit. Compare before you buy.</p><small>Student mini-project prototype · Demo data only · © FitLook AI</small></footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
